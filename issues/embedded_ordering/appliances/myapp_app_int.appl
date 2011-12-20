@@ -1,0 +1,18 @@
+name: myapp_app_int
+summary: Common configuration for running MyApp in integration environment (just the application host)
+hardware:
+  partitions:
+    "/":
+      size: 7  # Gb
+variables:
+  HOSTNAME: "int_app_hostname"
+appliances:
+  - myapp_common_int
+post:
+  base:
+    - "echo #HOSTNAME# > /root/hostname_myapp_app_int"
+    - "echo ---- Creating home directory structures"
+    - "mkdir -p /home/myapp/stuff"
+    - "echo ---- Installing application and setting permissions"
+    - "chown -R myapp:myapp /home/myapp"
+

@@ -1,0 +1,15 @@
+name: myapp_int_single_server
+summary: Configuration for running the integration version of MyApp on a single standalone server (app and DB combined).
+appliances:
+  - myapp_app_int
+  - myapp_db_int
+hardware:
+  partitions:
+    "/":
+      size: 9  # Gb
+variables:
+  HOSTNAME: "standalone_int_app_hostname"
+post:
+  base:
+    - "echo #HOSTNAME# > /root/hostname_myapp_int_single_server"
+

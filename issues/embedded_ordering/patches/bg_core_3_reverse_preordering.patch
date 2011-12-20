@@ -1,0 +1,21 @@
+diff --git lib/boxgrinder-core/helpers/appliance-definition-helper.rb lib/boxgrinder-core/helpers/appliance-definition-helper.rb
+index 05f9179..1c5fa9c 100644
+--- lib/boxgrinder-core/helpers/appliance-definition-helper.rb
++++ lib/boxgrinder-core/helpers/appliance-definition-helper.rb
+@@ -54,14 +54,14 @@ module BoxGrinder
+ 
+         return if appliance_config.nil?
+ 
+-        @appliance_configs << appliance_config
+         appliances = []
+ 
+         @appliance_configs.each { |config| appliances << config.name }
+ 
+-        appliance_config.appliances.reverse.each do |appliance_name|
++        appliance_config.appliances.each do |appliance_name|
+           read_definitions("#{File.dirname(definition)}/#{appliance_name}#{definition_file_extension}") unless appliances.include?(appliance_name)
+         end unless appliance_config.appliances.nil? or !appliance_config.appliances.is_a?(Array)
++        @appliance_configs << appliance_config
+       else
+         # Assuming that the definition is provided as string
+         @appliance_configs << parse_yaml(@appliance_parser.parse_definition(definition, false))

@@ -1,0 +1,9 @@
+name: myapp_common_int
+summary: Common configuration for running MyApp in the integration environment (both database and application)
+appliances:
+  - centos_5_jeos
+post:
+  base:
+    - "groupadd -g603 myapp"
+    - "useradd -u563 -gmyapp myapp"
+    - "echo \"passwordmyapp\" | passwd --stdin myapp"

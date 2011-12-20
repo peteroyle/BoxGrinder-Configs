@@ -1,0 +1,12 @@
+name: myapp_db_int
+summary: Separate database host for integration version of MyApp.
+appliances:
+  - mysql
+  - myapp_common_int
+hardware:
+  partitions:
+    "/":
+      size: 8  # Gb
+post:
+  base:
+    - "echo '-- Creating database ...'"

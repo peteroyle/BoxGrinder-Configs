@@ -1,0 +1,12 @@
+name: centos_5_jeos
+summary: Just Enough Operating System based on Centos 5.5
+os:
+  name: centos 
+  version: 5
+  password: password
+hardware:
+  cpus: 2
+  memory: 2048 # Mb
+  partitions:
+    "/":
+      size: 6  # Gb

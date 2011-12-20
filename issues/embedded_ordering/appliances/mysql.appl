@@ -1,0 +1,9 @@
+name: mysql
+summary: MySQL, currently used for production
+packages:
+  - mysql
+  - mysql-server
+  - mysql-devel
+post:
+  base:
+    - "chkconfig --levels 345 mysqld on"

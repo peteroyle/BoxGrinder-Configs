@@ -1,0 +1,53 @@
+appliances: 
+- centos_5_jeos
+- myapp_common_int
+- myapp_app_int
+- mysql
+- myapp_db_int
+default_repos: true
+files: {}
+
+hardware: !map:OpenCascade 
+  :memory: 2048
+  :arch: x86_64
+  :network: NAT
+  :partitions: !map:OpenCascade 
+    /: 
+      size: 9
+      type: ext4
+    /boot: 
+      size: 0.1
+      type: ext3
+  :base_arch: x86_64
+  :cpus: 2
+name: myapp_int_single_server
+os: !map:OpenCascade 
+  :password: password
+  :pae: true
+  :name: centos
+  :version: "5"
+packages: 
+- mysql
+- mysql-server
+- mysql-devel
+path: !map:OpenCascade 
+  :appliance: appliances/x86_64/centos/5/myapp_int_single_server/1.0
+  :os: centos/5
+  :main: x86_64/centos/5
+  :version: "1.0"
+  :build: build/appliances/x86_64/centos/5/myapp_int_single_server/1.0
+post: 
+  base: 
+  - groupadd -g603 myapp
+  - useradd -u563 -gmyapp myapp
+  - echo "passwordmyapp" | passwd --stdin myapp
+  - echo standalone_int_app_hostname > /root/hostname_myapp_app_int
+  - echo ---- Creating home directory structures
+  - mkdir -p /home/myapp/stuff
+  - echo ---- Installing application and setting permissions
+  - chown -R myapp:myapp /home/myapp
+  - chkconfig --levels 345 mysqld on
+  - echo '-- Creating database ...'
+  - echo standalone_int_app_hostname > /root/hostname_myapp_int_single_server
+release: 0
+repos: []

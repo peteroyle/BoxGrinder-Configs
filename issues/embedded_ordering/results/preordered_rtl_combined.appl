@@ -1,0 +1,99 @@
+appliances: 
+- myapp_app_int
+- mysql
+- centos_5_jeos
+- myapp_common_int
+- myapp_db_int
+default_repos: true
+files: {}
+
+hardware: !map:OpenCascade 
+  :memory: 2048
+  :arch: x86_64
+  :network: NAT
+  :partitions: !map:OpenCascade 
+    /: 
+      size: 9
+      type: ext4
+    /boot: 
+      size: 0.1
+      type: ext3
+  :base_arch: x86_64
+  :cpus: 2
+name: myapp_int_single_server
+os: !map:OpenCascade 
+  :password: password
+  :pae: true
+  :name: centos
+  :version: "5"
+packages: 
+- mysql
+- mysql-server
+- mysql-devel
+path: !map:OpenCascade 
+  :appliance: appliances/x86_64/centos/5/myapp_int_single_server/1.0
+  :os: centos/5
+  :main: x86_64/centos/5
+  :version: "1.0"
+  :build: build/appliances/x86_64/centos/5/myapp_int_single_server/1.0
+post: 
+  base: 
+  - echo standalone_int_app_hostname > /root/hostname_myapp_app_int
+  - echo ---- Creating home directory structures
+  - mkdir -p /home/myapp/stuff
+  - echo ---- Installing application and setting permissions
+  - chown -R myapp:myapp /home/myapp
+  - chkconfig --levels 345 mysqld on
+  - groupadd -g603 myapp
+  - useradd -u563 -gmyapp myapp
+  - echo "passwordmyapp" | passwd --stdin myapp
+  - echo '-- Creating database ...'
+  - echo standalone_int_app_hostname > /root/hostname_myapp_int_single_server
+release: 0
+repos: []
+
+
+
+Results in:
+===========
+
+T, [2011-12-21T08:30:12.117173 #2966] TRACE -- : GFS: /bin/sh -c setarch x86_64 << 'SETARCH_EOF'
+chown -R myapp:myapp /home/myapp
+SETARCH_EOF
+T, [2011-12-21T08:30:12.850054 #2966] TRACE -- : GFS: chown: 
+T, [2011-12-21T08:30:12.853047 #2966] TRACE -- : GFS: `myapp:myapp': invalid user
+T, [2011-12-21T08:30:12.879072 #2966] TRACE -- : GFS: umount /sysroot/sys
+T, [2011-12-21T08:30:12.970077 #2966] TRACE -- : GFS: umount /sysroot/selinux
+T, [2011-12-21T08:30:13.016078 #2966] TRACE -- : GFS: umount /sysroot/proc
+T, [2011-12-21T08:30:13.063059 #2966] TRACE -- : GFS: umount /sysroot/dev/pts
+T, [2011-12-21T08:30:13.108067 #2966] TRACE -- : GFS: umount /sysroot/dev
+T, [2011-12-21T08:30:13.158049 #2966] TRACE -- : GFS: guestfsd: error: chown: `myapp:myapp': invalid user
+D, [2011-12-21T08:30:13.159314 #2966] DEBUG -- : GFS: sh = NULL (error)
+F, [2011-12-21T08:30:13.160549 #2966] FATAL -- : Guestfs::Error: sh: chown: `myapp:myapp': invalid user
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/guestfs-helper.rb:295:in `sh'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/guestfs-helper.rb:295:in `sh'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/plugins/os/rpm-based/rpm-based-os-plugin.rb:118:in `execute_post'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/plugins/os/rpm-based/rpm-based-os-plugin.rb:117:in `each'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/plugins/os/rpm-based/rpm-based-os-plugin.rb:117:in `execute_post'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/plugins/os/rpm-based/rpm-based-os-plugin.rb:97:in `build_with_appliance_creator'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/image-helper.rb:130:in `customize'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/guestfs-helper.rb:176:in `customize'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/guestfs-helper.rb:123:in `initialize_guestfs'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/guestfs-helper.rb:169:in `prepare_guestfs'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/guestfs-helper.rb:123:in `initialize_guestfs'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/guestfs-helper.rb:77:in `log_callback'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/guestfs-helper.rb:123:in `initialize_guestfs'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/guestfs-helper.rb:173:in `customize'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/helpers/image-helper.rb:129:in `customize'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/plugins/os/rpm-based/rpm-based-os-plugin.rb:76:in `build_with_appliance_creator'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/plugins/os/rhel/rhel-plugin.rb:33:in `build_rhel'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/plugins/os/centos/centos-plugin.rb:44:in `execute'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/plugins/base-plugin.rb:172:in `run'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/appliance.rb:176:in `execute_plugin'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/appliance.rb:121:in `execute_plugin_chain'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/appliance.rb:121:in `each'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/appliance.rb:121:in `execute_plugin_chain'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/lib/boxgrinder-build/appliance.rb:156:in `create'
+/usr/lib/ruby/gems/1.8/gems/boxgrinder-build-0.10.0/bin/boxgrinder-build:189
+/usr/bin/boxgrinder-build:19:in `load'
+/usr/bin/boxgrinder-build:19
