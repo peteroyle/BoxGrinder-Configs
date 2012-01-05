@@ -1,0 +1,11 @@
+name: ruby_bundled
+summary: CentOS Bundled Ruby (MRI) configuration, plus RubyGems grabbed from web and installed from source
+packages:
+  - wget
+  - ruby
+post:
+  base:
+    - "cd /tmp && wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz"
+    - "cd /tmp && tar zxf rubygems-1.3.7.tgz"
+    - "cd /tmp/rubygems-1.3.7 && ruby setup.rb"
+    - "ln -sfv /usr/bin/gem1.8 /usr/bin/gem"

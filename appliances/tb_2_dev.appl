@@ -1,0 +1,6 @@
+name: tb_2_dev
+summary: Torquebox dependencies and settings for development
+appliances:
+  - dev_java
+  - tb_2_common
+  - tb_gems

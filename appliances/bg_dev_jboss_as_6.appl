@@ -1,0 +1,6 @@
+name: bg_dev_jboss_as_6
+summary: Configures a Java development box with JBoss AS 6 installed ready to go.
+appliances:
+  - bg_dev_java
+  - jboss_as_6_service
+  - jboss_as_6_mysql_driver

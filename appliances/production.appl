@@ -1,0 +1,18 @@
+name: production
+summary: Performs safety measures on prod systems like removing temporary shared mounts which are required during first-boot from the /etc/fstab file etc.
+appliances:
+  - app_installation
+packages:
+  - subversion
+post:
+  base:
+    - "echo 'grep -v mnt/shared /etc/fstab > /etc/fstab2' >> /etc/rc.firstboot"
+    - "echo 'rm /etc/fstab' >> /etc/rc.firstboot"
+    - "echo 'mv /etc/fstab2 /etc/fstab' >> /etc/rc.firstboot"
+    - "echo 'echo' >> /root/install_app.sh"
+    - "echo 'echo *********************************' >> /root/install_app.sh"
+    - "echo 'echo * SET ROOT PASSWORD!!           *' >> /root/install_app.sh"
+    - "echo 'echo *********************************' >> /root/install_app.sh"
+    - "echo 'echo' >> /root/install_app.sh"
+    - "echo 'passwd root' >> /root/install_app.sh"
+    - "echo 'mysql_secure_installation' >> /root/install_app.sh"

@@ -1,0 +1,4 @@
+name: bg_dev_mobicents
+summary: Configures a Java development box with JBoss AS 6 and Mobicents installed ready to go.
+appliances:
+  - bg_dev_jboss_as_6

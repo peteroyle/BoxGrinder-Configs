@@ -1,0 +1,31 @@
+name: bg_ruby_rmagick
+summary: Ruby EE + RMagick base appliance
+appliances:
+  - centos_5_epel
+  - ruby_ee
+  - ruby_common_gems
+hardware:
+  cpus: 1
+  memory: 512 # Mb
+  partitions:
+    "/":
+      size: 5  # Gb
+packages:
+  - wget
+  - rpm-build
+  - postfix
+post:
+  base:
+    - "echo 'wget http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.#BASE_ARCH#.rpm' >> /etc/rc.firstboot"
+    - "echo 'rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt' >> /etc/rc.firstboot"
+    - "echo 'rpm -i rpmforge-release-0.5.2-2.el5.rf.#BASE_ARCH#.rpm' >> /etc/rc.firstboot"
+    - "echo 'yum -y --enablerepo=EPEL --enablerepo=rpmforge --enablerepo=centosplus install djvulibre-devel libwmf-devel jasper-devel libtool-ltdl-devel librsvg2-devel openexr-devel graphviz-devel.#BASE_ARCH# gcc gcc-c++ ghostscript freetype-devel libjpeg-devel libpng-devel giflib-devel libwmf-devel libexif-devel libtiff-devel' >> /etc/rc.firstboot"
+    - "echo 'yum -y --enablerepo=EPEL --enablerepo=rpmforge --enablerepo=centosplus install  bzip2-devel ghostscript-devel libXt-devel lcms-devel' >> /etc/rc.firstboot"
+    - "echo 'wget http://distfiles.exherbo.org/distfiles/ImageMagick-6.5.7-0.tar.bz2' >> /etc/rc.firstboot"
+    - "echo 'cp ImageMagick-6.5.7-0.tar.bz2 /usr/src/redhat/SOURCES' >> /etc/rc.firstboot"
+    - "echo 'wget http://www.cherpec.com/wp-content/uploads/2009/10/ImageMagick.spec' >> /etc/rc.firstboot"
+    - "echo 'cp ImageMagick.spec /usr/src/redhat/SPECS' >> /etc/rc.firstboot"
+    - "echo 'rpmbuild -ba /usr/src/redhat/SPECS/ImageMagick.spec' >> /etc/rc.firstboot"
+    - "echo 'rpm -qa | grep ImageMagick | grep -i i386 | xargs rpm -e' >> /etc/rc.firstboot"
+    - "echo 'rpm -Uvh  /usr/src/redhat/RPMS/#BASE_ARCH#/ImageMagick-*' >> /etc/rc.firstboot"
+    - "echo 'gem install rmagick --no-rdoc --no-ri' >> /etc/rc.firstboot"

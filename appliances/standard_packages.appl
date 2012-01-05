@@ -1,0 +1,9 @@
+name: standard_packages
+summary: Standard set of useful packages for both dev and prod systems
+packages:
+  - @core
+  - unzip
+  - nfs-utils
+  - bind-utils
+  - wget
+  - mlocate

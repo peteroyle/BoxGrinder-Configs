@@ -1,0 +1,18 @@
+name: data_synchronisation
+summary: Tools for synchronising data (file and database) between hosts
+packages:
+  - rsync
+files:
+  "/root/.ssh":
+    - "../common_files/id_dsa"
+    - "../common_files/id_dsa.pub"
+post:
+  base:
+    - "echo 'echo Synchronising files' >> /etc/rc.sync_manual"
+    - "echo 'chmod a-rwx /etc/rc.sync_manual' >> /etc/rc.sync_manual"
+    - "chmod u+rwx /etc/rc.sync_manual"
+    - "mv -f /root/.ssh/common_files/id_dsa /root/.ssh/id_dsa"
+    - "mv -f /root/.ssh/common_files/id_dsa.pub /root/.ssh/id_dsa.pub"
+    - "cat /root/.ssh/id_dsa.pub >> /root/.ssh/authorized_keys"
+    - "chmod 400 /root/.ssh/id_dsa"
+    - "chmod 400 /root/.ssh/authorized_keys"

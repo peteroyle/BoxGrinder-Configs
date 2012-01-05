@@ -1,0 +1,13 @@
+name: mysql
+summary: MySQL, currently used for production
+packages:
+  - mysql
+  - mysql-server
+  - mysql-devel
+files:
+  "/tmp":
+    - "../common_files/etc/my.cnf"
+post:
+  base:
+    - "cp /tmp/common_files/etc/my.cnf /etc/my.cnf"
+    - "chkconfig --levels 345 mysqld on"

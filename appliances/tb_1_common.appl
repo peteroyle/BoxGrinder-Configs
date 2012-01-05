@@ -1,0 +1,16 @@
+name: tb_1_common
+summary: Torquebox dependencies and settings
+appliances:
+  - tb_common
+files:
+  "/opt":
+    - "../downloads/torquebox-dist-1.1.1-bin.zip"
+post:
+  base:
+    - "cd /opt && unzip downloads/torquebox-dist-1*.zip && rm -f downloads/torquebox-dist-1*.zip"
+    - "ln -s /opt/torquebox* /opt/torquebox-1"
+    - "echo 'export TORQUEBOX_HOME=/opt/torquebox-1' >> /etc/profile"
+    - "echo 'export JBOSS_HOME=$TORQUEBOX_HOME/jboss' >> /etc/profile"
+    - "echo 'export JRUBY_HOME=$TORQUEBOX_HOME/jruby' >> /etc/profile"
+    - "echo 'export PATH=$JRUBY_HOME/bin:$PATH' >> /etc/profile"
+    - "source /etc/profile"

@@ -1,0 +1,5 @@
+name: bg_dev_java
+summary: Dependencies and settings for development on DigitalWorx Java/JRuby apps
+appliances:
+  - centos_5_jeos
+  - dev_java

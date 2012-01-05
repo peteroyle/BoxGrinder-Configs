@@ -1,0 +1,21 @@
+name: dev_common
+summary: Common development tools such as version control clients, db clients etc
+appliances:
+  - mysql
+  - postgresql
+  - users_dev
+  - net_homes
+  - net_shared
+hardware:
+  cpus: 2
+  memory: 4096 # Mb
+  partitions:
+    "/":
+      size: 10  # Gb
+packages:
+  - "@Development Tools"
+  - subversion
+  - git
+post:
+  base:
+    - "chkconfig --levels 35 nfs on"

@@ -1,0 +1,9 @@
+name: postgresql
+summary: PostgreSQL database
+packages:
+  - postgresql
+  - postgresql-server
+  - postgresql-devel
+post:
+  base:
+    - "chkconfig --levels 345 postgresql on"

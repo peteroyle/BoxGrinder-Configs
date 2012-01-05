@@ -1,0 +1,5 @@
+name: java_debug
+summary: Java and all Java-based-app-server debugging environment settings
+post:
+  base:
+    - "echo '#export JAVA_OPTS=\"$JAVA_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n\"' >> /etc/profile"

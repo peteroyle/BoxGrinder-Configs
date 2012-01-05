@@ -1,0 +1,18 @@
+name: jboss_as_6_service
+summary: Set up JBoss AS 6 as a service after installing it
+# Don't include jboss_as_6_common, as this definition can be used with TorqueBox 1
+post:
+  base:
+    - "echo '#!/bin/sh' > /etc/init.d/jboss_as"
+    - "echo '#chkconfig: 3 87 20' >> /etc/init.d/jboss_as"
+    - "echo '#description: JBoss Application Server' >> /etc/init.d/jboss_as"
+    - "echo 'source /etc/profile' >> /etc/init.d/jboss_as"
+    - "echo 'export JBOSS_HOST=0.0.0.0' >> /etc/profile"
+    - "mv $JBOSS_HOME/bin/run.conf $JBOSS_HOME/bin/run.conf.orig"
+    - "echo 'export JAVA_OPTS=\"-Xms2048m -Xmx2048m -XX:MaxPermSize=512m -Dorg.jboss.resolver.warning=true\"' > $JBOSS_HOME/bin/run.conf"
+    - "cat $JBOSS_HOME/bin/run.conf.orig >> $JBOSS_HOME/bin/run.conf"
+    - "rm -f $JBOSS_HOME/bin/run.conf.orig"
+    - "cat $JBOSS_HOME/bin/jboss_init_redhat.sh >> /etc/init.d/jboss_as"
+    - "chmod +x /etc/init.d/jboss_as"
+    - "chkconfig --add jboss_as"
+    - "chkconfig --levels 345 jboss_as on"

@@ -1,0 +1,34 @@
+name: ruby_ee
+summary: Enterprise Ruby (MRI) configuration
+appliances:
+  - httpd
+  - mysql
+packages:
+  - wget
+  - gcc-c++
+  - make
+  - patch
+  - zlib-devel
+  - openssl-devel
+  - readline-devel
+  - curl-devel
+  - apr-devel
+  - apr-util-devel
+files:
+  "/opt":
+    - "../downloads/ruby-enterprise-1.8.7-2011.01.tar.gz"
+post:
+  base:
+    - "echo 'cd /opt && tar -zxvf /opt/downloads/ruby-enterprise-1.8.7-2011.01.tar.gz' >> /etc/rc.firstboot"
+    - "echo 'ln -s /opt/ruby-enterprise* /opt/ruby-ee-installer' >> /etc/rc.firstboot"
+    - "echo '/opt/ruby-ee-installer/installer -a /opt/ruby-ee' >> /etc/rc.firstboot"
+    - "echo '/opt/ruby-ee/bin/passenger-install-apache2-module -a' >> /etc/rc.firstboot"
+    - "echo 'LoadModule passenger_module /opt/ruby-ee/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so' >> /etc/httpd/conf.d/00_phusion.conf"
+    - "echo 'PassengerRoot /opt/ruby-ee/lib/ruby/gems/1.8/gems/passenger-3.0.11' >> /etc/httpd/conf.d/00_phusion.conf"
+    - "echo 'PassengerRuby /opt/ruby-ee/bin/ruby' >> /etc/httpd/conf.d/00_phusion.conf"
+    - "echo 'export RUBY_HOME=/opt/ruby-ee' >> /etc/profile"
+    - "echo 'export PATH=$RUBY_HOME/bin:$PATH' >> /etc/profile"
+    - "source /etc/profile"
+    - "echo 'gem install rubygems-update -v=1.4.2' >> /etc/rc.firstboot"
+    - "echo 'update_rubygems' >> /etc/rc.firstboot"
+

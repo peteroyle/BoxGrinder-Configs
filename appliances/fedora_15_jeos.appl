@@ -1,0 +1,17 @@
+name: fedora_15_jeos
+summary: Just Enough Operating System based on Fedora
+appliances:
+  - standard_packages
+  - common
+os:
+  name: fedora
+  version: 15
+  password: password
+hardware:
+  cpus: 2
+  memory: 2048 # Mb
+  partitions:
+    "/":
+      size: 3  # Gb
+packages:
+  - openssh-clients

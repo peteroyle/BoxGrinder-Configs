@@ -1,0 +1,14 @@
+name: bg_httpdha01
+summary: HTTP Proxy 01 for high availability / load balancing
+appliances:
+  - cfg_net_office
+  - httpd_ha
+variables:
+  HOSTNAME: "httpdha01"
+  HOSTNAME_1: "#HOSTNAME#"
+  HOSTNAME_2: "httpdha02"
+  IP_ADDRESS: "192.168.1.231"
+  IP_ADDRESS_1: "#IP_ADDRESS#"
+  IP_ADDRESS_2: "192.168.1.232"
+  IP_ADDRESS_VIRT: "192.168.1.230"
+  HW_ADDRESS_VIRT: "54:52:00:1F:A1:0C"

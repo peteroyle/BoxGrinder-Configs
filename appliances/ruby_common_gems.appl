@@ -1,0 +1,21 @@
+name: ruby_common_gems
+summary: Install gems commonly used by our apps and tools
+packages:
+  - mysql
+  - mysql-devel
+  - gcc
+  - make
+post:
+  base:
+    - "echo 'gem install rails -v=2.3.11 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install rails -v=3.0.10 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install will_paginate -v=2.3.11 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install less -v=1.2.21 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install mysql -v=2.8.1 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install rubyzip -v=0.9.4 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install fastercsv -v=1.5.3 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install lockfile -v=1.4.3 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install will_paginate -v=2.3.15 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install ezcrypto -v=0.7.2 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install rspec -v=2.7.0 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+#    - "echo 'gem install sproutcore --pre --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"

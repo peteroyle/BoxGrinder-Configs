@@ -1,0 +1,9 @@
+name: java_common
+summary: Java deps for production java apps
+packages:
+  - java-1.6.0-openjdk
+  - java-1.6.0-openjdk-devel
+post:
+  base:
+    - "echo 'export JAVA_HOME=/etc/alternatives/java_sdk' >> /etc/profile"
+    - "echo 'export JAVA_OPTS=\"\"' >> /etc/profile"

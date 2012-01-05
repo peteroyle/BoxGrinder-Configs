@@ -1,0 +1,11 @@
+name: tb_gems
+summary: Torquebox gems installation
+appliances:
+  - ruby_common_gems
+post:
+  base:
+    - "echo 'gem install tilt -v=1.3.2 --no-rdoc --no-ri' >> /etc/rc.firstboot"
+    - "echo 'gem install activerecord-jdbc-adapter jdbc-sqlite3 jdbc-mysql jruby-openssl --no-rdoc --no-ri' >> /etc/rc.firstboot"
+    - "echo 'gem install torquebox-backstage --no-rdoc --no-ri' >> /etc/rc.firstboot"
+    - "echo 'backstage deploy' >> /etc/rc.firstboot"
+    - "echo 'chown -R jboss:jboss /opt/torquebox-*' >> /etc/rc.firstboot"

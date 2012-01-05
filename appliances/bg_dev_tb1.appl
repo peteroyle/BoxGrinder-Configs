@@ -1,0 +1,5 @@
+name: bg_dev_tb1
+summary: Dependencies and settings for development on DigitalWorx Java/JRuby apps
+appliances:
+  - centos_5_jeos
+  - tb_1_dev

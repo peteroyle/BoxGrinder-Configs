@@ -1,0 +1,11 @@
+name: drools_common
+summary: Drools common configuration, dependant on JBoss AS 6
+appliances:
+  - jboss_as_6_common
+  - jboss_as_6_service
+post:
+  base:
+    - "echo 'cd /opt && wget https://hudson.jboss.org/jenkins/view/Drools%20jBPM/job/guvnor/852/artifact/*zip*/archive.zip && unzip archive*.zip && unzip archive/guvnor-distribution/target/guvnor-distribution-5*.zip && rm -f archive*' >> /etc/rc.firstboot"
+    - "echo 'ln -s /opt/guvnor-distribution-5* /opt/guvnor-5' >> /etc/rc.firstboot"
+    - "echo 'cp /opt/guvnor-5/binaries/guvnor-5*-jboss-as-6.0.war /opt/jboss-as-6/server/default/deploy' >> /etc/rc.firstboot"
+    - "echo 'export GUVNOR_HOME=/opt/guvnor-5' >> /etc/profile"

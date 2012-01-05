@@ -1,0 +1,6 @@
+name: jbilling_3_dev
+summary: Java and JBilling platform for development installations
+appliances:
+  - dev_java
+  - jbilling_3_common
+

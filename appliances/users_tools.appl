@@ -1,0 +1,6 @@
+name: users_tools
+summary: Users for specific 3rd party applications eg jira
+post:
+  base:
+    - "groupadd -g610 jira"
+    - "useradd -u606 -gjira jira"

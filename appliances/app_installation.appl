@@ -1,0 +1,10 @@
+name: app_installation
+summary: Some infrastructure for prompting user to run install script once logged in
+post:
+  base:
+    - "echo 'echo Executing application instalation...' >> /root/install_app.sh"
+    - "echo 'source /etc/profile' >> /root/install_app.sh"
+    - "chmod a+rwx /root/install_app.sh"
+    - "echo 'chmod -rwx /root/install_app.sh' >> /root/install_app.sh"
+    - "echo 'echo Run /root/install_app.sh to install application!' >> /etc/profile"
+

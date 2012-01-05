@@ -1,0 +1,8 @@
+name: cento_5_epel
+summary: EPEL repository for Centos 5
+appliances:
+  - centos_5_jeos
+repos:
+  - name: "EPEL"
+    baseurl: "http://mirror.aarnet.edu.au/pub/epel/5/#BASE_ARCH#"
+    ephemeral: false

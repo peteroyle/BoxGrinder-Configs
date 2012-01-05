@@ -1,0 +1,22 @@
+name: bg_mesabe
+summary: Appliance for hosting Mesabe
+appliances:
+  - centos_5_jeos
+  - dev_java
+  - ruby_bundled
+  - rmagick
+packages:
+  - libxml2
+  - libxml2-devel
+hardware:
+  cpus: 1
+  memory: 512 # Mb
+  partitions:
+    "/":
+      size: 2  # Gb
+post:
+  base:
+    - "groupadd -g615 mesabe"
+    - "useradd -u608 mesabe"
+    - "/usr/bin/mysql_secure_installation"
+    - "gem install bundler"

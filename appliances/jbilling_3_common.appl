@@ -1,0 +1,10 @@
+name: jbilling_3_common
+summary: Java and JBilling platform common configuration for development and production.
+appliances:
+  - java_common
+post:
+  base:
+    - "echo 'cd /opt && wget http://downloads.sourceforge.net/project/jbilling/jbilling%20Latest%20Stable/jbilling-3.0.0/jbilling-community-3-0-final.zip && unzip jbilling-community-3-0-final.zip && rm -f jbilling-community-3-0-final.zip' >> /etc/rc.firstboot"
+    - "echo 'ln -s /opt/jbilling* /opt/jbilling-3' >> /etc/rc.firstboot"
+    - "echo 'chmod +x /opt/jbilling-3/bin/*.sh' >> /etc/rc.firstboot"
+    - "echo 'export JBILLING_HOME=/opt/jbilling-3/jbilling' >> /etc/profile"

@@ -1,0 +1,9 @@
+name: rmagick
+summary: Packages required for RMagick (required by HitCity)
+packages:
+ - libjpeg
+ - libpng
+ - libwmf
+ - freetype
+ - ghostscript
+ - ImageMagick

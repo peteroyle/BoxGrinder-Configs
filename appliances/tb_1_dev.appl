@@ -1,0 +1,8 @@
+name: tb_1_dev
+summary: Torquebox dependencies and settings for development
+appliances:
+  - dev_java
+  - tb_1_common
+  - tb_gems
+  - jboss_as_6_mysql_driver
+  - jboss_as_6_service

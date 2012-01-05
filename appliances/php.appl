@@ -1,0 +1,7 @@
+name: php
+summary: PHP dependencies
+packages:
+  - php
+  - php-devel
+  - php-mysql
+  - php-pgsql

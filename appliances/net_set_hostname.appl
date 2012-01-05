@@ -1,0 +1,7 @@
+name: net_set_hostname
+summary: Configures the hostname for centos. The calling script must set the appropriate hostname in the HOSTNAME veriable
+post:
+  base:
+    - "echo 'NETWORKING=yes' > /etc/sysconfig/network"
+    - "echo 'NETWORKING_IPV6=no' >> /etc/sysconfig/network"
+    - "echo 'HOSTNAME=#HOSTNAME#' >> /etc/sysconfig/network"

@@ -1,0 +1,5 @@
+name: java_memhi
+summary: Java and all Java-based-app-server hi-memory environment settings
+post:
+  base:
+    - "echo 'export JAVA_OPTS=\"$JAVA_OPTS -Xms5120m -Xmx5120m -XX:MaxPermSize=2048m -Dorg.jboss.resolver.warning=true\"' >> /etc/profile"

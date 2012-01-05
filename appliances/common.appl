@@ -1,0 +1,8 @@
+name: common
+summary: Common packages, users and utils for all appliances
+appliances:
+  - users_common
+  - first_boot_actions
+  - app_installation
+  - ec2_amazon
+  - ntp

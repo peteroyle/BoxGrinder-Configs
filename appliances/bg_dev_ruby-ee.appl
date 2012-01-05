@@ -1,0 +1,6 @@
+name: bg_dev_ruby-ee
+summary: Dependencies and settings for development on DigitalWorx Ruby EE apps
+appliances:
+  - bg_dev_java
+  - ruby_ee
+  - ruby_common_gems

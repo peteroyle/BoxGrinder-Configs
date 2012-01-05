@@ -1,0 +1,15 @@
+name: centos_4_jeos
+summary: Just Enough Operating System based on Centos 4
+appliances:
+  - standard_packages
+  - common
+os:
+  name: centos 
+  version: 4
+  password: password
+hardware:
+  cpus: 2
+  memory: 2048 # Mb
+  partitions:
+    "/":
+      size: 10  # Gb

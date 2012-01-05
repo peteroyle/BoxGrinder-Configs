@@ -1,0 +1,9 @@
+name: httpd
+summary: Common Apache Httpd settings/requirements
+packages:
+  - httpd
+  - httpd-devel
+  - mod_ssl
+post:
+  base:
+    - "chkconfig --levels 345 httpd on"

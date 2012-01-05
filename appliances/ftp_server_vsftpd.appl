@@ -1,0 +1,15 @@
+name: ftp_server_vsftpd
+summary: Common configuration for secure VSFTP server
+packages:
+  - vsftpd
+post:
+  base:
+    - "grep -v anonymous_enable /etc/vsftpd/vsftpd.conf  > /etc/vsftpd/vsftpd.conf.tmp"
+    - "mv -f /etc/vsftpd/vsftpd.conf.tmp /etc/vsftpd/vsftpd.conf"
+    - "groupadd -g619 ftpsecure"
+    - "useradd -u619 -gftpsecure ftpsecure"
+    - "echo 'anonymous_enable=NO' >> /etc/vsftpd/vsftpd.conf"
+    - "echo 'nopriv_user=ftpsecure' >> /etc/vsftpd/vsftpd.conf"
+    - "echo 'ftpd_banner=Welcome to our FTP service.' >> /etc/vsftpd/vsftpd.conf"
+    - "echo 'userlist_deny=NO' >> /etc/vsftpd/vsftpd.conf"
+    - "chkconfig --levels 345 vsftpd on"

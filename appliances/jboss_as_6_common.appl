@@ -1,0 +1,14 @@
+name: jboss_as_6_common
+summary: JBoss Application Server 6 common configuration
+appliances:
+  - java_common
+files:
+  "/opt":
+    - "../downloads/jboss-as-distribution-6.1.0.Final.zip"
+post:
+  base:
+    - "cd /opt && unzip downloads/jboss-as-distribution-6*.zip"
+    - "ln -s /opt/jboss-6* /opt/jboss-as-6"
+    - "chmod +x /opt/jboss-as-6/bin/*.sh"
+    - "chown -R jboss:jboss /opt/jboss-*"
+    - "echo 'export JBOSS_HOME=/opt/jboss-as-6' >> /etc/profile"

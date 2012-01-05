@@ -1,0 +1,12 @@
+name: net_static_ip
+summary: provides most config so that you only have to add desired static IP and gateway and restart networking
+files:
+  "/tmp":
+    - "../common_files/etc/sysconfig/network-scripts/ifcfg-eth0-staticip"
+post:
+  base:
+    - "cp -f /tmp/common_files/etc/sysconfig/network-scripts/ifcfg-eth0-staticip /etc/sysconfig/network-scripts/ifcfg-eth0"
+    - "echo 'DNS1=#DNS1#' >> /etc/sysconfig/network-scripts/ifcfg-eth0"
+    - "echo 'DNS2=#DNS2#' >> /etc/sysconfig/network-scripts/ifcfg-eth0"
+    - "echo 'GATEWAY=#GATEWAY#' >> /etc/sysconfig/network-scripts/ifcfg-eth0"
+    - "echo 'IPADDR=#IP_ADDRESS#' >> /etc/sysconfig/network-scripts/ifcfg-eth0"

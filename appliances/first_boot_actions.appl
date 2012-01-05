@@ -1,0 +1,11 @@
+name: first_boot_actions
+summary: Some infrastructure for running commands on the first boot only
+post:
+  base:
+    - "echo 'echo Performing first boot operations...' >> /etc/rc.firstboot"
+    - "echo 'source /etc/profile' >> /etc/rc.firstboot"
+    - "echo 'grep -v firstboot /etc/rc.local > /etc/rc.local.new' >> /etc/rc.firstboot"
+    - "echo 'rm /etc/rc.local' >> /etc/rc.firstboot"
+    - "echo 'mv /etc/rc.local.new /etc/rc.local' >> /etc/rc.firstboot"
+    - "chmod a+rwx /etc/rc.firstboot"
+    - "echo 'chmod -rwx /etc/rc.firstboot' >> /etc/rc.firstboot"

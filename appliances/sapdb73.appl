@@ -1,0 +1,14 @@
+name: sapdb73
+summary: 32-bit SapDB database installation
+packages:
+  - compat-libstdc++-296
+  - libstdc++
+  - libstdc++-devel
+files:
+  "/tmp":
+    - "ftp://ftp.sap.com/pub/sapdb/bin/linux/sapdb-ind-7.3.0.48-1.i386.rpm"
+    - "ftp://ftp.sap.com/pub/sapdb/bin/linux/sapdb-srv-7.3.0.48-1.i386.rpm"
+post:
+  base:
+    - "rpm -i /tmp/sapdb-ind-7.3.0.48-1.i386.rpm"
+    - "rpm -i /tmp/sapdb-srv-7.3.0.48-1.i386.rpm"

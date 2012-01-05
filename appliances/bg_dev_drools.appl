@@ -1,0 +1,5 @@
+name: bg_dev_drools
+summary: Configures a Java development box with JBoss AS 6 and Drools installed ready to go.
+appliances:
+  - bg_dev_java
+  - drools_common

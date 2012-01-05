@@ -1,0 +1,8 @@
+logfile /var/log/ha-log
+logfacility local0
+keepalive 2
+deadtime 30
+initdead 120
+bcast eth0
+udpport 694
+auto_failback on

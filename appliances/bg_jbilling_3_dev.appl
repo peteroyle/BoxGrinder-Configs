@@ -1,0 +1,6 @@
+name: bg_jbilling_3_dev
+summary: Java and JBilling platform for development installations, running on Centos 5
+appliances:
+  - centos_5_jeos
+  - users_dev
+  - jbilling_3_dev

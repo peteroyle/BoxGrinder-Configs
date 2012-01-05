@@ -1,0 +1,5 @@
+name: ec2_amazon
+summary: Some stuff to help things run smoothly on Amazon EC2 instances
+post:
+  base:
+    - "if [ -f /home/ec2-user/.bashrc ]; then echo 'source /etc/profile' >> /home/ec2-user/.bashrc; fi"

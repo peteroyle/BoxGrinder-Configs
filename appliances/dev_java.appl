@@ -1,0 +1,22 @@
+name: dev_java
+summary: Tools for developing Java apps
+appliances:
+  - dev_common
+  - java_common
+  - java_debug
+files:
+  "/opt":
+    - "../downloads/apache-maven-3.0.3-bin.tar.gz"
+    - "../downloads/forge-distribution-1.0.0SNAPSHOT.zip"
+packages:
+  - ant
+post:
+  base:
+    - "tar -C /opt/ -zxf /opt/downloads/apache-maven-3.*"
+    - "ln -s /opt/apache-maven-3.* /opt/maven-3"
+    - "echo 'export MAVEN_HOME=/opt/maven-3' >> /etc/profile"
+    - "echo 'export NETBEANS_HOME=$HOME/softwaredev/tools/ides/netbeans-7/' >> /etc/profile"
+    - "cd /opt && unzip /opt/downloads/forge*"
+    - "ln -s /opt/forge-* /opt/forge-1"
+    - "echo 'export FORGE_HOME=/opt/forge-1' >> /etc/profile"
+    - "echo 'export PATH=$PATH:$NETBEANS_HOME/bin:$FORGE_HOME/bin:$MAVEN_HOME/bin:$NETBEANS_HOME/bin' >> /etc/profile"

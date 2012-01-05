@@ -1,0 +1,40 @@
+name: httpd_ha
+summary: HTTP Proxy for high availability / load balancing
+appliances:
+  - centos_5_epel
+  - net_static_ip
+  - net_set_hostname
+  - httpd
+  - production
+packages:
+  - heartbeat
+  - which
+files:
+  "/tmp":
+    - "../common_files/etc/ha.d/authkeys"
+    - "../common_files/etc/ha.d/ha.cf"
+    - "../common_files/etc/sysconfig/network-scripts/ifcfg-eth0-virtualip"
+    - "../common_files/etc/sysctl-ha.conf"
+post:
+  base:
+    - "rm /etc/httpd/conf.d/ssl.conf"
+    - "cp /usr/share/doc/heartbeat-2.*/authkeys /etc/ha.d/"
+    - "cp /usr/share/doc/heartbeat-2.*/ha.cf /etc/ha.d/"
+    - "cp /usr/share/doc/heartbeat-2.*/haresources /etc/ha.d/"
+    - "cat /tmp/common_files/etc/ha.d/authkeys >> /etc/ha.d/authkeys"
+    - "chmod 600 /etc/ha.d/authkeys"
+    - "cat /tmp/common_files/etc/ha.d/ha.cf >> /etc/ha.d/ha.cf"
+    - "echo 'node #HOSTNAME_1#' >> /etc/ha.d/ha.cf"
+    - "echo 'node #HOSTNAME_2#' >> /etc/ha.d/ha.cf"
+    - "grep -v Listen /etc/httpd/conf/httpd.conf > /etc/httpd/conf/httpd.conf.nolisten"
+    - "mv /etc/httpd/conf/httpd.conf.nolisten /etc/httpd/conf/httpd.conf"
+    - "chkconfig --levels 345 heartbeat on"
+    - "cp /tmp/common_files/etc/sysctl-ha.conf /etc/sysctl.conf"
+    - "cp /tmp/common_files/etc/sysconfig/network-scripts/ifcfg-eth0-virtualip /etc/sysconfig/network-scripts/ifcfg-eth0:0"
+    - "echo 'IPADDR=#IP_ADDRESS_VIRT#' >> /etc/sysconfig/network-scripts/ifcfg-eth0:0"
+    - "echo 'HWADDR=#HW_ADDRESS_VIRT#' >> /etc/sysconfig/network-scripts/ifcfg-eth0:0"
+    - "echo 'httpdha01 #IP_ADDRESS_VIRT# httpd' >> /etc/ha.d/haresources"
+    - "echo 'Listen #IP_ADDRESS_VIRT#:80' > /etc/httpd/conf.d/httpdha.conf"
+    - "echo '#IP_ADDRESS_1# #HOSTNAME_1#' >> /etc/hosts"
+    - "echo '#IP_ADDRESS_2# #HOSTNAME_2#' >> /etc/hosts"
+    - "echo '#HOSTNAME# @ #IP_ADDRESS# apache HA server' > /var/www/html/index.html"

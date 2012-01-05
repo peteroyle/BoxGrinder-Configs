@@ -1,0 +1,4 @@
+name: tb_common
+summary: Torquebox dependencies and settings
+appliances:
+  - java_common

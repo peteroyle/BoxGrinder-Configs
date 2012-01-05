@@ -1,0 +1,6 @@
+name: users_jbilling
+summary: Users for production jBilling platform installations
+post:
+  base:
+    - "groupadd -g617 jbilling"
+    - "useradd -u617 -gjbilling jbilling"

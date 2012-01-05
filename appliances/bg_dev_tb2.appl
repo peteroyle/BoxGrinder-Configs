@@ -1,0 +1,5 @@
+name: bg_dev_tb2
+summary: Dependencies and settings for development on Java/JRuby apps
+appliances:
+  - centos_5_jeos
+  - tb_2_dev

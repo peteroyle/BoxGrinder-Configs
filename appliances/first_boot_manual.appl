@@ -1,0 +1,8 @@
+name: first_boot_manual
+summary: Disables firstboot actions from executing automatically, requiring first loggedin user to do it manually. Useful if you want to watch/debug the process.
+post:
+  base:
+    - "echo 'echo Run /etc/rc.firstboot first install dependencies!' >> /etc/profile"
+    - "grep -v firstboot /etc/rc.local > /etc/rc.local.new"
+    - "rm /etc/rc.local"
+    - "mv /etc/rc.local.new /etc/rc.local"

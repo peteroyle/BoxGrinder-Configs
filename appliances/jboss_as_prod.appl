@@ -1,0 +1,5 @@
+name: jboss_as_prod
+summary: Common JBoss production settings
+post:
+  base:
+    - "echo 'chkconfig jboss_as on' >> /etc/rc.firstboot"

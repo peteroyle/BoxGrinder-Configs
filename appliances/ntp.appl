@@ -1,0 +1,8 @@
+name: ntp
+summary: Installs NTP client/daemon and syncs with ntp.org
+packages:
+  - ntp
+post:
+  base:
+    - "ntpdate pool.ntp.org"
+    - "chkconfig ntpd on"
