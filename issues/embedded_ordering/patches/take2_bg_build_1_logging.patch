@@ -1,0 +1,12 @@
+diff --git lib/boxgrinder-build/appliance.rb lib/boxgrinder-build/appliance.rb
+index e8c5bea..6ccf085 100644
+--- lib/boxgrinder-build/appliance.rb
++++ lib/boxgrinder-build/appliance.rb
+@@ -148,6 +148,7 @@ module BoxGrinder
+       read_definition
+       validate_definition
+       initialize_plugins
++      @log.trace @appliance_config.to_yaml
+ 
+       remove_old_builds if @config.force
+ 

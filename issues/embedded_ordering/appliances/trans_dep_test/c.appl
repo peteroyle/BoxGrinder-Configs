@@ -1,0 +1,12 @@
+name: c
+summary: User creation
+hardware:
+  partitions:
+    "/":
+      size: 5  # Gb
+variables:
+  HOSTNAME: "c"
+post:
+  base:
+    - "echo #HOSTNAME# > /root/hostname_c"
+    - "useradd testuser"

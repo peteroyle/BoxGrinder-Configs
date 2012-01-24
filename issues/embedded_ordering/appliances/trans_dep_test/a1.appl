@@ -1,0 +1,18 @@
+name: a1
+summary: Top level appliance
+appliances:
+  - b
+  - d
+os:
+  name: centos 
+  version: 5
+  password: password
+hardware:
+  partitions:
+    "/":
+      size: 4  # Gb
+variables:
+  HOSTNAME: "a"
+post:
+  base:
+    - "echo #HOSTNAME# > /root/hostname_a"

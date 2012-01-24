@@ -1,0 +1,45 @@
+appliances: 
+- c
+- b
+- d
+default_repos: true
+files: {}
+
+hardware: !map:OpenCascade 
+  :memory: 256
+  :arch: x86_64
+  :network: NAT
+  :partitions: !map:OpenCascade 
+    /: 
+      size: 7
+      type: ext4
+    /boot: 
+      size: 0.1
+      type: ext3
+  :base_arch: x86_64
+  :cpus: 1
+name: a2
+os: !map:OpenCascade 
+  :password: password
+  :pae: true
+  :name: centos
+  :version: "5"
+packages: []
+
+path: !map:OpenCascade 
+  :appliance: appliances/x86_64/centos/5/a2/1.0
+  :os: centos/5
+  :main: x86_64/centos/5
+  :version: "1.0"
+  :build: build/appliances/x86_64/centos/5/a2/1.0
+post: 
+  base: 
+  - echo a > /root/hostname_c
+  - useradd testuser
+  - echo a > /root/hostname_b
+  - chown testuser /tmp
+  - echo a > /root/hostname_d
+  - chown testuser /opt/something
+  - echo a > /root/hostname_a
+release: 0
+repos: []

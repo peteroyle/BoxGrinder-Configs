@@ -1,0 +1,13 @@
+diff --git lib/boxgrinder-build/appliance.rb lib/boxgrinder-build/appliance.rb
+index e8c5bea..d626bf0 100644
+--- lib/boxgrinder-build/appliance.rb
++++ lib/boxgrinder-build/appliance.rb
+@@ -41,7 +41,7 @@ module BoxGrinder
+       appliance_helper = ApplianceDefinitionHelper.new(:log => @log)
+       appliance_helper.read_definitions(@appliance_definition)
+ 
+-      appliance_configs = appliance_helper.appliance_configs
++      appliance_configs = appliance_helper.appliance_configs.reverse
+       appliance_config = appliance_configs.first
+ 
+       raise ValidationError, "Ensure your appliance definition file has a '.appl' extension: #{File.basename(@appliance_definition)}." if appliance_config.nil?

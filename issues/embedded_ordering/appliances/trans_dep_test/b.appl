@@ -1,0 +1,15 @@
+name: b
+summary: User permissions
+appliances:
+  - c
+hardware:
+  partitions:
+    "/":
+      size: 6  # Gb
+variables:
+  HOSTNAME: "b"
+post:
+  base:
+    - "echo #HOSTNAME# > /root/hostname_b"
+    - "chown testuser /tmp"
+

@@ -1,0 +1,14 @@
+name: d
+summary: Depends on user permissions
+appliances:
+  - b
+hardware:
+  partitions:
+    "/":
+      size: 7  # Gb
+variables:
+  HOSTNAME: "d"
+post:
+  base:
+    - "echo #HOSTNAME# > /root/hostname_d"
+    - "chown testuser /opt/something"
