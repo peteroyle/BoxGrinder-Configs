@@ -11,6 +11,7 @@ Other directories include the "downloads" folder (explained below) and the "comm
 - bg_dev_java: Java development tools (eg: Maven, Ant, Forge etc)
 - bg_dev_mobicents: Java development tools plus Mobicents deployed on JBoss
 - bg_dev_ruby_ee: Ruby development tools based on Enterprise Ruby
+- bg_dev_jboss_as_7: Java development tools with JBoss AS 7.1 installed
 - bg_dev_tb_1: Java development tools with TorqueBox 1.x installed
 - bg_dev_tb_2: Java development tools with TorqueBox 2.x installed
 - bg_httpdha01: Active/passive failover Apache server, main node
