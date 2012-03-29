@@ -1,11 +1,10 @@
 name: dev_common
 summary: Common development tools such as version control clients, db clients etc
 appliances:
+  - centos_5_epel
   - mysql
   - postgresql
   - users_dev
-  - net_homes
-  - net_shared
 hardware:
   cpus: 2
   memory: 4096 # Mb

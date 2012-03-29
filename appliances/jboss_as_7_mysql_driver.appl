@@ -1,0 +1,11 @@
+name: jboss_as_7_mysql_driver
+summary: Installs the MySQL Driver Jar into JBoss libs directories for all profiles
+# Don't include jboss_as_7_common, as this definition can be used with TorqueBox 2
+files:
+  "/opt":
+    - "../downloads/mysql-connector-java-5.1.17.jar"
+post:
+  base:
+    - "source /etc/profile"
+    - "echo 'cp /opt/downloads/mysql-connector-java-5*.jar $JBOSS_HOME/standalone/lib' >> /etc/rc.firstboot"
+    - "echo 'cp /opt/downloads/mysql-connector-java-5*.jar $JBOSS_HOME/domain/lib' >> /etc/rc.firstboot"

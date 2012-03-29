@@ -2,5 +2,6 @@ name: users_common
 summary: Common groups and users for both PRODUCTION and DEVELOPMENT (so be careful what you add here!)
 post:
   base:
+    - "echo 'Common Users'"
     - "groupadd -g602 jboss"
     - "useradd -u602 -gjboss jboss"

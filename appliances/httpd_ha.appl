@@ -5,7 +5,6 @@ appliances:
   - net_static_ip
   - net_set_hostname
   - httpd
-  - production
 packages:
   - heartbeat
   - which

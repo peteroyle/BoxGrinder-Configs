@@ -1,0 +1,13 @@
+name: jboss_as_7_common
+summary: JBoss AS 7 dependencies and settings
+appliances:
+  - java_common
+files:
+  "/opt":
+    - "../downloads/jboss-as-7.1.0.Final.zip"
+post:
+  base:
+    - "cd /opt && unzip downloads/jboss-as-7.1.0.Final.zip"
+    - "ln -s /opt/jboss-as-7.* /opt/jboss-as-7"
+    - "echo 'export JBOSS_HOME=/opt/jboss-as-7' >> /etc/profile"
+    - "source /etc/profile"

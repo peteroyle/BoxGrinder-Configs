@@ -1,4 +1,4 @@
-name: cento_5_epel
+name: centos_5_epel
 summary: EPEL repository for Centos 5
 appliances:
   - centos_5_jeos

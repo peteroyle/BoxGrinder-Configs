@@ -6,7 +6,7 @@ appliances:
   - java_debug
 files:
   "/opt":
-    - "../downloads/apache-maven-3.0.3-bin.tar.gz"
+    - "../downloads/apache-maven-3.0.4-bin.tar.gz"
     - "../downloads/forge-distribution-1.0.0SNAPSHOT.zip"
 packages:
   - ant

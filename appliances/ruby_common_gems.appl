@@ -5,6 +5,9 @@ packages:
   - mysql-devel
   - gcc
   - make
+  - libxml2-devel
+  - libxslt-devel
+  - qt4-devel
 post:
   base:
     - "echo 'gem install rails -v=2.3.11 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
@@ -18,4 +21,5 @@ post:
     - "echo 'gem install will_paginate -v=2.3.15 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
     - "echo 'gem install ezcrypto -v=0.7.2 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
     - "echo 'gem install rspec -v=2.7.0 --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
+    - "echo 'gem install bundler --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"
 #    - "echo 'gem install sproutcore --pre --no-rdoc --no-ri --conservative' >> /etc/rc.firstboot"

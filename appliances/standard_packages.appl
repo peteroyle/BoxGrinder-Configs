@@ -7,3 +7,6 @@ packages:
   - bind-utils
   - wget
   - mlocate
+#post:
+#  base:
+#    - "updatedb"

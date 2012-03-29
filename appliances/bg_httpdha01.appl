@@ -3,6 +3,7 @@ summary: HTTP Proxy 01 for high availability / load balancing
 appliances:
   - cfg_net_office
   - httpd_ha
+  - production
 variables:
   HOSTNAME: "httpdha01"
   HOSTNAME_1: "#HOSTNAME#"

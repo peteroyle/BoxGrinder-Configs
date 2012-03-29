@@ -4,5 +4,8 @@ packages:
   - ntp
 post:
   base:
+    - "export TZ=Australia/Brisbane"
+    - "echo 'export TZ=Australia/Brisbane' >> /etc/profile"
     - "ntpdate pool.ntp.org"
     - "chkconfig ntpd on"
+  
