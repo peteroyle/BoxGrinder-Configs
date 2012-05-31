@@ -1,0 +1,8 @@
+name: bg_dev_php
+summary: Appliance for developing PHP apps
+appliances:
+  - centos_5_jeos
+  - ntp
+  - httpd
+  - mysql
+  - php
