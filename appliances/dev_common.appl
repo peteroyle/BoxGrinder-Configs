@@ -15,6 +15,7 @@ packages:
   - "@Development Tools"
   - subversion
   - git
+  - firefox
 post:
   base:
     - "chkconfig --levels 35 nfs on"

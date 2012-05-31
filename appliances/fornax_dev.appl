@@ -1,0 +1,6 @@
+name: fornax_dev
+summary: Fornax dependencies and settings for development
+appliances:
+ - dev_java
+ - fornax_common
+ - tb_2_dev

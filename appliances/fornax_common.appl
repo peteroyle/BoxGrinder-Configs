@@ -1,0 +1,7 @@
+name: fornax_common
+summary: Fornax Platform dependencies and settings
+appliances:
+ - java_common
+ - tb_2_common
+packages:
+ - graphviz

@@ -4,10 +4,10 @@ appliances:
   - tb_common
 files:
   "/opt":
-    - "../downloads/torquebox-dist-2.0.0.cr1-bin.zip"
+    - "../downloads/torquebox-dist-2.0.0-bin.zip"
 post:
   base:
-    - "cd /opt && unzip downloads/torquebox-dist-2.0.0.cr1-bin.zip"
+    - "cd /opt && unzip downloads/torquebox-dist-2.0.0-bin.zip"
     - "ln -s /opt/torquebox* /opt/torquebox-2"
     - "echo 'export TORQUEBOX_HOME=/opt/torquebox-2' >> /etc/profile"
     - "echo 'export JBOSS_HOME=$TORQUEBOX_HOME/jboss' >> /etc/profile"

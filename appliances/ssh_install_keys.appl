@@ -1,0 +1,16 @@
+name: ssh_install_keys
+summary: Copies ssh private/public keys from a variable location into the root account and a variable user's account
+variables:
+  SSH_KEY_LOCATION: "ERROR_SSH_KEY_LOCATION_NOT_SET"
+  SSH_USER: "ERROR_SSH_USER_NOT_SET"
+post:
+  base:
+    - "mv -f #SSH_KEY_LOCATION#/id_dsa /root/.ssh/id_dsa"
+    - "mv -f #SSH_KEY_LOCATION#/id_dsa.pub /root/.ssh/id_dsa.pub"
+    - "cat /root/.ssh/id_dsa.pub >> /root/.ssh/authorized_keys"
+    - "chmod 400 /root/.ssh/id_dsa"
+    - "chmod 400 /root/.ssh/authorized_keys"
+    - "cat /root/.ssh/id_dsa.pub >> /home/#SSH_USER#/.ssh/authorized_keys"
+    - "cp /root/.ssh/id_dsa* /home/#SSH_USER#/.ssh/"
+    - "chown -R #SSH_USER#:#SSH_USER# /home/#SSH_USER#/.ssh"
+    - "chmod 400 /home/#SSH_USER#/.ssh/*"

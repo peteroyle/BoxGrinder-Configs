@@ -15,4 +15,6 @@ post:
     - "echo 'echo *********************************' >> /root/install_app.sh"
     - "echo 'echo' >> /root/install_app.sh"
     - "echo 'passwd root' >> /root/install_app.sh"
+    - "echo '/etc/init.d/mysqld start' >> /root/install_app.sh"
     - "echo 'mysql_secure_installation' >> /root/install_app.sh"
+    - "rm /etc/httpd/conf.d/welcome.conf"

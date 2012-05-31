@@ -1,9 +1,9 @@
 http://repository-torquebox.forge.cloudbees.com/release/org/torquebox/torquebox-dist/1.1.1/torquebox-dist-1.1.1-bin.zip
-http://torquebox.org/release/org/torquebox/torquebox-dist/2.0.0.cr1/torquebox-dist-2.0.0.cr1-bin.zip
+http://torquebox.org/release/org/torquebox/torquebox-dist/2.0.0/torquebox-dist-2.0.0-bin.zip
 http://download.jboss.org/jbossas/6.1/jboss-as-distribution-6.1.0.Final.zip
 http://download.jboss.org/jbossas/7.1/jboss-as-7.1.0.Final/jboss-as-7.1.0.Final.zip
 http://mirrors.ibiblio.org/pub/mirrors/maven2/mysql/mysql-connector-java/5.1.17/mysql-connector-java-5.1.17.jar
-http://apache.mirror.aussiehq.net.au//maven/binaries/apache-maven-3.0.3-bin.tar.gz
+http://apache.mirror.aussiehq.net.au//maven/binaries/apache-maven-3.0.4-bin.tar.gz
 http://ftp.heanet.ie/mirrors/sourceforge/m/project/mo/mobicents/Mobicents%20JAIN%20SLEE%20Server/2.5.0.FINAL/mobicents-jainslee-2.5.0.FINAL-jboss-5.1.0.GA.zip
 http://ftp.heanet.ie/mirrors/sourceforge/m/project/mo/mobicents/Mobicents%20Diameter/mobicents-diameter-1.4.0.CR1/mobicents-diameter-mux-jboss5-1.4.0.CR1.sar.zip
 http://ftp.heanet.ie/mirrors/sourceforge/m/project/mo/mobicents/Mobicents%20Diameter/mobicents-diameter-1.4.0.CR1/mobicents-diameter-1.4.0.CR1.zip

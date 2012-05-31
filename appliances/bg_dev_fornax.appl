@@ -1,0 +1,5 @@
+name: bg_dev_fornax
+summary: Dependencies and settings for development on Fornax Platform apps
+appliances:
+  - centos_5_jeos
+  - fornax_dev
